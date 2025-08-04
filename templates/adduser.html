@@ -1,0 +1,26 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+
+
+<h3>{{ title }}</h3>
+
+
+<form action="/adduser" method="POST">
+
+    {{ form.hidden_tag() }}
+    {{ form.name.label(class="form-label") }}
+    {{ form.name(class="form-control") }}
+    <br />
+    {{ form.email.label(class="form-label") }}
+    {{ form.email(class="form-control") }}
+    <br />
+    {{ form.password.label(class="form-label") }}
+    {{ form.password(class="form-control") }}
+    <br />
+    {{ form.submit(class="btn btn-secondary") }}
+
+</form>
+
+{% endblock %}
+

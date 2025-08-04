@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - My Flask Application</title>
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+     <style>
+        .scroll-btn {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            position: fixed;
+            right: 20px;
+            z-index: 1000;
+            font-size: 24px;
+            line-height: 1;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .scroll-btn:hover {
+            opacity: 1;
+        }
+        .pagination {
+            margin-top: 20px;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">Ai Tools& more</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+            
+                    <li><a href="{{ url_for('trinkets')}}">Trinkets</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+
+        <div style="margin-top: 45px; margin-bottom: 45px; ">
+            <a href="/aitools" class="btn btn-primary btn-large" style="margin-top: auto;"> Search Ai Tools & more </a>
+            <a href="/form" class="btn btn-primary btn-large" style="margin-right: 10px;">Add Ai tools & more</a>
+            <a href="/home" class="btn btn-primary btn-large" style="margin-right: auto;">Homepage</a>
+
+
+        </div>
+
+
+        {% block content %}{% endblock %}
+
+        <div style="margin-top: 45px;">
+            <a href="/aitools" class="btn btn-primary btn-large" style="margin-top: auto;"> Search Ai Tools & more </a>
+            <a href="/form" class="btn btn-primary btn-large" style="margin-right: 10px;">Add Ai tools & more</a>
+            <a href="/home" class="btn btn-primary btn-large" style="margin-right: auto;">Homepage</a>
+
+
+        </div>
+
+        <hr />
+        <footer>
+            <p>&copy; {{ year }} - Ai-Tools& more</p>
+        </footer>
+    </div>
+
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
+    {% block scripts %}{% endblock %}
+
+       <!-- Scroll Buttons -->
+    <button id="scrollToBottom" class="scroll-btn" style="top: 70px;">⬇</button>
+    <button id="scrollToTop" class="scroll-btn" style="bottom: 20px;">⬆</button>
+
+    <script>
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        document.getElementById('scrollToBottom').addEventListener('click', function() {
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        });
+    </script>
+
+
+</body>
+</html>

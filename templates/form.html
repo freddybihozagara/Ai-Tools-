@@ -1,0 +1,30 @@
+
+
+{% extends "layout.v2.0.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+
+<form action="/aitools" method="POST">
+
+    {{ form.hidden_tag() }}
+    {{ form.name.label(class="form-label") }}
+    {{ form.name(class="form-control") }}
+    <br />
+    {{ form.url.label(class="form-label") }}
+    {{ form.url(class="form-control") }}
+    <br />
+    {{ form.category.label }}
+    {{ form.category(class="form-select form-select-lg") }}
+    <br />
+    {{ form.submit(class="btn btn-secondary") }}
+
+</form>
+
+
+
+
+{% endblock %}
+

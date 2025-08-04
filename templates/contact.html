@@ -1,0 +1,23 @@
+
+{% extends "layout.v2.0.html" %}
+
+{% set title = "Ai Tools & more" %}
+{% set message = "We would love to hear from you!" %}
+{% set additional_content = "Feel free to reach out with any questions or feedback." %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+
+
+<address>
+    <h1><strong>{{ title }}</strong></h1><br />
+    <h3>1234 AI Avenue,Tech City, TC 12345</h3><br />
+    <h3><abbr title="Phone">Phone:</abbr> (123) 456-7890</h3><br />
+
+    <h3>Email:</h3>  <a href="mailto:Support@example.com">support@aitools.com</a><br />
+    <h3>Website:</h3> <a href="https://www.aitools.com">www.aitools.com</a><br />
+</address>
+
+{% endblock %}

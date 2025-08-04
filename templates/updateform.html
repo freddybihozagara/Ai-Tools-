@@ -1,0 +1,37 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+
+<form action="/update" method="POST">
+
+    {{ form.hidden_tag() }}
+
+    {% if form.errors %}
+<div class="alert alert-danger" role="alert">
+        {{ form.errors }}
+</div>
+{% endif %}
+
+    {{ form.id.label(class="form-label") }}
+    {{ form.id(class="form-control") }}
+     <br />
+    {{ form.name.label(class="form-label") }}
+    {{ form.name(class="form-control") }}
+    <br />
+    {{ form.url.label(class="form-label") }}
+    {{ form.url(class="form-control") }}
+    <br />
+    {{ form.category.label }}
+    {{ form.category(class="form-select form-select-lg") }}
+    <br />
+    {{ form.submit(class="btn btn-secondary") }}
+
+</form>
+
+
+
+
+{% endblock %}

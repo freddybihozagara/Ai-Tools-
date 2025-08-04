@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+<h3>{{ message }}</h3>
+
+<style>
+    .table { width: 100%; border: 1px solid black; padding: 5px; text-align: center;}
+    tr {text-align: center; }
+    th {text-align: center;}
+</style>
+
+<script>
+    function copyToClipboard(url) {
+        navigator.clipboard.writeText(url).then(function () {
+            alert(url);
+        }).catch(function () {
+            alert('Failed to copy to clipboard');
+        });
+    }
+</script>
+
+<table class="table table-striped-columnsd">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>name</th>
+        <th>url</th>
+        <th>category</th>
+        <th><a><img src="../static/content/icons8-copy-24.png"></a></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in results %}
+        <tr>
+            <td>{{ row.id }}</td>
+            <td>{{ row.name }}</td>
+            <td><a href="#" >{{ row.url }}</a></td>>
+            <td>{{ row.category }}</td>
+            <td>
+                <a href="#" onclick="copyToClipboard('{{ row.url }}')">
+                    <img src="../static/content/icons8-copy-24.png" alt="Copy to clipboard">
+                </a>
+            </td>
+
+        </tr>
+    {% endfor %}
+      </tbody>
+</table>
+
+<div style="margin-top: 10px;">
+
+    <form action="/update" method="POST">
+
+        {{ form.id.label(class="form-label") }}
+        {{ form.id(class="form-control") }}
+        <br />
+
+        {{ form.hidden_tag() }}
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control") }}
+        <br />
+        {{ form.url.label(class="form-label") }}
+        {{ form.url(class="form-control") }}
+        <br />
+        {{ form.category.label }}
+        {{ form.category(class="form-select form-select-lg") }}
+
+        <br />
+
+        <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Update</button>
+
+    </form>
+
+
+
+</div>
+
+
+        {% endblock %}
